@@ -1,0 +1,5 @@
+# multi-scale transfer issue in version > 4.32.0 
+igneous-pipeline==4.32.0
+
+# override cloud-files to include v1dd-hack changes
+git+https://github.com/aplbrain/cloud-files.git@v1dd-hack
