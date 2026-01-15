@@ -18,7 +18,22 @@
 # test various encoding strategies
 
 # no encoding (raw)
-igneous image xfer gs://bossdb-v1dd-transfer/image/aligned_image gs://bossdb-v1dd-transfer/transfer/v1dd_raw \
+# igneous image xfer gs://bossdb-v1dd-transfer/image/aligned_image gs://bossdb-v1dd-transfer/transfer/v1dd_raw \
+#     --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
+#     --mip 1 \
+#     --bounds-mip 1 \
+#     --skip-downsample \
+#     --cutout \
+#     --xrange 33024,37120 \
+#     --yrange 33408,35584 \
+#     --zrange 4688,4944 \
+#     --shape 4096,2176,256 \
+#     --sharded \
+#     --encoding raw 
+
+
+# jpegxl level 100
+igneous image xfer gs://bossdb-v1dd-transfer/image/aligned_image gs://bossdb-v1dd-transfer/transfer/v1dd_jpegxl_quality100 \
     --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
     --mip 1 \
     --bounds-mip 1 \
@@ -29,11 +44,12 @@ igneous image xfer gs://bossdb-v1dd-transfer/image/aligned_image gs://bossdb-v1d
     --zrange 4688,4944 \
     --shape 4096,2176,256 \
     --sharded \
-    --encoding raw 
+    --encoding jpegxl \
+    --encoding-effort 10 \
+    --encoding-level 100
 
-
-# jpegxl effort 5
-# igneous image xfer gs://bossdb-v1dd-transfer/image/aligned_image gs://bossdb-v1dd-transfer/transfer/v1dd_jpegxl_effort5 \
+# jpegxl level 90
+# igneous image xfer gs://bossdb-v1dd-transfer/image/aligned_image gs://bossdb-v1dd-transfer/transfer/v1dd_jpegxl_quality90 \
 #     --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
 #     --mip 1 \
 #     --bounds-mip 1 \
@@ -45,48 +61,51 @@ igneous image xfer gs://bossdb-v1dd-transfer/image/aligned_image gs://bossdb-v1d
 #     --shape 4096,2176,256 \
 #     --sharded \
 #     --encoding jpegxl \
-#     --encoding-effort 5
+#     --encoding-effort 10 \
+#     --encoding-level 90
 
-# jpegxl effort 1
-igneous image xfer gs://bossdb-v1dd-transfer/image/aligned_image gs://bossdb-v1dd-transfer/transfer/v1dd_jpegxl_effort1 \
-    --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
-    --mip 1 \
-    --bounds-mip 1 \
-    --skip-downsample \
-    --cutout \
-    --xrange 33024,37120 \
-    --yrange 33408,35584 \
-    --zrange 4688,4944 \
-    --shape 4096,2176,256 \
-    --sharded \
-    --encoding jpegxl \
-    --encoding-effort 1
+# jpegxl level 50
+# igneous image xfer gs://bossdb-v1dd-transfer/image/aligned_image gs://bossdb-v1dd-transfer/transfer/v1dd_jpegxl_quality50 \
+#     --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
+#     --mip 1 \
+#     --bounds-mip 1 \
+#     --skip-downsample \
+#     --cutout \
+#     --xrange 33024,37120 \
+#     --yrange 33408,35584 \
+#     --zrange 4688,4944 \
+#     --shape 4096,2176,256 \
+#     --sharded \
+#     --encoding jpegxl \
+#     --encoding-effort 10 \
+#     --encoding-level 50
 
-# jpegxl effort 10
-igneous image xfer gs://bossdb-v1dd-transfer/image/aligned_image gs://bossdb-v1dd-transfer/transfer/v1dd_jpegxl_effort10 \
-    --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
-    --mip 1 \
-    --bounds-mip 1 \
-    --skip-downsample \
-    --cutout \
-    --xrange 33024,37120 \
-    --yrange 33408,35584 \
-    --zrange 4688,4944 \
-    --shape 4096,2176,256 \
-    --sharded \
-    --encoding jpegxl \
-    --encoding-effort 10
+# jpegxl level 25
+# igneous image xfer gs://bossdb-v1dd-transfer/image/aligned_image gs://bossdb-v1dd-transfer/transfer/v1dd_jpegxl_quality25 \
+#     --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
+#     --mip 1 \
+#     --bounds-mip 1 \
+#     --skip-downsample \
+#     --cutout \
+#     --xrange 33024,37120 \
+#     --yrange 33408,35584 \
+#     --zrange 4688,4944 \
+#     --shape 4096,2176,256 \
+#     --sharded \
+#     --encoding jpegxl \
+#     --encoding-effort 10 \
+#     --encoding-level 25
 
 #png
-igneous image xfer gs://bossdb-v1dd-transfer/image/aligned_image gs://bossdb-v1dd-transfer/transfer/v1dd_png \
-    --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
-    --mip 1 \
-    --bounds-mip 1 \
-    --skip-downsample \
-    --cutout \
-    --xrange 33024,37120 \
-    --yrange 33408,35584 \
-    --zrange 4688,4944 \
-    --shape 4096,2176,256 \
-    --sharded \
-    --encoding png 
+# igneous image xfer gs://bossdb-v1dd-transfer/image/aligned_image gs://bossdb-v1dd-transfer/transfer/v1dd_png \
+#     --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
+#     --mip 1 \
+#     --bounds-mip 1 \
+#     --skip-downsample \
+#     --cutout \
+#     --xrange 33024,37120 \
+#     --yrange 33408,35584 \
+#     --zrange 4688,4944 \
+#     --shape 4096,2176,256 \
+#     --sharded \
+#     --encoding png 
