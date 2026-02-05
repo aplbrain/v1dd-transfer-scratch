@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+    name: v1dd-transfer
+
+spec:
+    parallelism: 15
+    template:
+        metadata:
+          labels:
+            app: v1dd-transfer
+        spec:
+            containers:
+            - name: v1dd-transfer
+              image: us-west1-docker.pkg.dev/gcp-redd-bossdb/v1dd-transfer/v1dd-transfer:latest       
+              env:
+              - name: QUEUE
+                value: "https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample"
+            restartPolicy: Never
+            topologySpreadConstraints:
+            - maxSkew: 1
+              topologyKey: kubernetes.io/hostname
+              whenUnsatisfiable: ScheduleAnyway   # or DoNotSchedule if you want strict spreading (pods may stay Pending)
+              labelSelector:
+                matchLabels:
+                  app: v1dd-transfer
+
