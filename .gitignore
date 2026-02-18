@@ -207,3 +207,6 @@ marimo/_lsp/
 __marimo__/
 
 secrets/
+
+v1dd-transfer/
+v1dd-transfer-backup/
