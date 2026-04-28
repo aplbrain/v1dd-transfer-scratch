@@ -19,19 +19,19 @@
 #     --sharded \
 
 
-igneous image downsample s3://bossdb-open-data/v1deepdive/downsample_test/jpegxl_quality90 \
-    --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
-    --mip 1 \
-    --num-mips 4 \
-    --sharded \
-    --encoding jpegxl \
-    --encoding-effort 5 \
-    --encoding-level 90
+# igneous image downsample s3://bossdb-open-data/v1deepdive/downsample_test/jpegxl_quality90 \
+#     --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
+#     --mip 1 \
+#     --num-mips 4 \
+#     --sharded \
+#     --encoding jpegxl \
+#     --encoding-effort 5 \
+#     --encoding-level 90
 
 igneous image downsample s3://bossdb-open-data/v1deepdive/downsample_test/jpegxl_quality95 \
     --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
-    --mip 1 \
-    --num-mips 4 \
+    --mip 4 \
+    --num-mips 2 \
     --sharded \
     --encoding jpegxl \
     --encoding-effort 5 \
@@ -40,16 +40,16 @@ igneous image downsample s3://bossdb-open-data/v1deepdive/downsample_test/jpegxl
 
 igneous image downsample s3://bossdb-open-data/v1deepdive/downsample_test/jpegxl_quality100 \
     --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
-    --mip 1 \
-    --num-mips 4 \
+    --mip 4 \
+    --num-mips 2 \
     --sharded \
     --encoding jpegxl \
     --encoding-effort 5 \
     --encoding-level 100
 
-igneous image downsample s3://bossdb-open-data/v1deepdive/downsample_test/raw \
-    --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
-    --mip 1 \
-    --num-mips 4 \
-    --sharded \
-    --encoding raw \
+# igneous image downsample s3://bossdb-open-data/v1deepdive/downsample_test/raw \
+#     --queue https://sqs.us-east-1.amazonaws.com/407510763690/s3-transfer-downsample \
+#     --mip 1 \
+#     --num-mips 4 \
+#     --sharded \
+#     --encoding raw \
